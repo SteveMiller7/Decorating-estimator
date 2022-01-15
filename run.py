@@ -49,7 +49,7 @@ def validate_float(data):
     """
 
     while True:
-        number_input = input('Enter a meterage measurement here (Eg 4.5):')
+        number_input = input('Enter measurement in meters (Eg 4.5):')
 
         try:
             val = float(number_input)
@@ -92,7 +92,7 @@ def room_length():
     Takes user input for room length
     """
 
-    print('Room Length\n')
+    print('Room Length:\n')
     length = measurement(measurement)
     print()
     return length
@@ -102,7 +102,7 @@ def room_width():
     Takes user input for room width
     """
 
-    print('Room Width\n')
+    print('Room Width:\n')
     width = measurement(measurement)
     print()
     return width
@@ -112,7 +112,7 @@ def room_height():
     Takes user input for room height
     """
 
-    print('Room Height\n')
+    print('Room Height:\n')
     height = measurement(measurement)
     print()
     return height
@@ -120,9 +120,6 @@ def room_height():
 def calculate_walls_area():
     """
     Calculates the cost of walls as per sizes input. 
-    Uses value of predetermined labour cost per m2 from decorating_estimator google sheet.
-    Calculates the amount of paint needed and returns the value.
-    returns total value of labour and materials for walls. 
     """
 
     length = room_length()
@@ -131,15 +128,15 @@ def calculate_walls_area():
 
     walls_total_length = ((length + width) * 2) * 2
     walls_area = walls_total_length * height
+    
 
     costs = []
-
     costs.append(sheet_data)
     for cost in costs:
         walls_rate = cost[1][1]
-        return walls_rate
 
-    
+    total = walls_area * float(walls_rate)
+    print(total)
 
 
 def main():
@@ -149,8 +146,9 @@ def main():
     welcome()
     today()
     calculate_walls_area()
+    """walls_rate_pull()"""
+    """walls_labour_calc()"""
     
-
 
 main()
 
