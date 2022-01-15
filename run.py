@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('decorating_estimator')
 
 costs = SHEET.worksheet('costs')
 
-data = costs.get_all_values()
+sheet_data = costs.get_all_values()
 
 
 def welcome():
@@ -78,12 +78,19 @@ def validate_int(data):
 
 
 def measurement(data):
+    """
+    Validates measurement inputs from room_length, room_width and room_height functions.
+    Ensures that inputs are integers.
+    """
 
     measurement = validate_float(data)
     return measurement
 
 
 def room_length():
+    """
+    Takes user input for room length
+    """
 
     print('Room Length\n')
     length = measurement(measurement)
@@ -91,6 +98,9 @@ def room_length():
     return length
 
 def room_width():
+    """
+    Takes user input for room width
+    """
 
     print('Room Width\n')
     width = measurement(measurement)
@@ -98,19 +108,48 @@ def room_width():
     return width
 
 def room_height():
+    """
+    Takes user input for room height
+    """
 
     print('Room Height\n')
     height = measurement(measurement)
     print()
     return height
 
+def calculate_walls_area():
+    """
+    Calculates the cost of walls as per sizes input. 
+    Uses value of predetermined labour cost per m2 from decorating_estimator google sheet.
+    Calculates the amount of paint needed and returns the value.
+    returns total value of labour and materials for walls. 
+    """
+
+    length = room_length()
+    width = room_width()
+    height = room_height()
+
+    walls_total_length = ((length + width) * 2) * 2
+    walls_area = walls_total_length * height
+
+    costs = []
+
+    costs.append(sheet_data)
+    for cost in costs:
+        walls_rate = cost[1][1]
+        return walls_rate
+
+    
+
 
 def main():
+    """
+    Runs all functions
+    """
     welcome()
     today()
-    room_length()
-    room_width()
-    room_height()
+    calculate_walls_area()
+    
 
 
 main()
