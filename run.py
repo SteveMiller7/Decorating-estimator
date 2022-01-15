@@ -136,7 +136,19 @@ def calculate_walls_area():
         walls_rate = cost[1][1]
 
     total = walls_area * float(walls_rate)
-    print(total)
+
+
+    if float(walls_area) > 0:
+        mats_cost = 55
+    elif float(walls_area) > 50:
+        mats_cost = 110
+    elif float(walls_area) > 100:
+        mats_cost = 165
+    elif float(walls_area) > 150:
+        mats_cost = 220
+
+    total_walls_cost = total + mats_cost
+    print(total_walls_cost)
 
 
 def main():
@@ -146,8 +158,7 @@ def main():
     welcome()
     today()
     calculate_walls_area()
-    """walls_rate_pull()"""
-    """walls_labour_calc()"""
+
     
 
 main()
