@@ -117,17 +117,16 @@ def room_height():
     print()
     return height
 
-def calculate_walls_area():
+def calculate_walls_area(num1, num2, num3):
     """
-    Calculates the cost of walls as per sizes input. 
+    Works out total wall area for 2 coats of paint.
+    Calculates the labour cost of walls as per sizes input. 
+    Calculates the amount of paint needed and cost.
+    Totals labour and paint to a final figure.
     """
 
-    length = room_length()
-    width = room_width()
-    height = room_height()
-
-    walls_total_length = ((length + width) * 2) * 2
-    walls_area = walls_total_length * height
+    walls_total_length = ((num1 + num2) * 2) * 2
+    walls_area = walls_total_length * num3
     
 
     costs = []
@@ -152,14 +151,21 @@ def calculate_walls_area():
     print(total_walls_cost)
     return total_walls_cost
 
-x = round(5.76543, 2)
+
+
+    
+
+
 def main():
     """
     Runs all functions
     """
     welcome()
     today()
-    calculate_walls_area()
+    length = room_length()
+    width = room_width()
+    height = room_height()
+    calculate_walls_area(length, width, height)
 
     
 
