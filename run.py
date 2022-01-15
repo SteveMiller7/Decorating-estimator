@@ -33,8 +33,14 @@ def welcome():
 welcome()
 
 def today():
+    """
+    Automatically inputs the date of estimate creation"
+    """
     today = date.today()
     print("Date of estimate:")
     print(today)
+    return today
 
 today()
+
+
