@@ -51,14 +51,31 @@ def validate_float(data):
     """
 
     while True:
-        number_input = input('Enter measurement here (Eg 4.5):')
+        number_input = input('Enter a meterage measurement here (Eg 4.5):')
 
         try:
             val = float(number_input)
             return val
             break
         except ValueError:
-            print("That's not an float!")
+            print("Error! Please input a measurement in meters e.g. 4.5")
 
 validate_float(data)
 
+def validate_int(data):
+    """
+    Validates if the value in the input is an int. 
+    Used where a whole number is required for doors, windows and radiator inputs. 
+    """
+
+    while True:
+        number_input = input('Enter number here (e.g. 3):')
+
+        try:
+            val = int(number_input)
+            return val
+            break
+        except ValueError:
+            print("Error! Please input a whole number!")
+
+validate_int(data)
