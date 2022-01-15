@@ -30,7 +30,6 @@ def welcome():
     return cust_name
     Print()
 
-welcome()
 
 def today():
     """
@@ -42,7 +41,6 @@ def today():
     print()
     return today
 
-today()
 
 def validate_float(data):
     """
@@ -60,7 +58,7 @@ def validate_float(data):
         except ValueError:
             print("Error! Please input a measurement in meters e.g. 4.5")
 
-validate_float(data)
+
 
 def validate_int(data):
     """
@@ -78,4 +76,42 @@ def validate_int(data):
         except ValueError:
             print("Error! Please input a whole number!")
 
-validate_int(data)
+
+def measurement(data):
+
+    measurement = validate_float(data)
+    return measurement
+
+
+def room_length():
+
+    print('Room Length\n')
+    length = measurement(measurement)
+    print()
+    return length
+
+def room_width():
+
+    print('Room Width\n')
+    width = measurement(measurement)
+    print()
+    return width
+
+def room_height():
+
+    print('Room Height\n')
+    height = measurement(measurement)
+    print()
+    return height
+
+
+def main():
+    welcome()
+    today()
+    room_length()
+    room_width()
+    room_height()
+
+
+main()
+
