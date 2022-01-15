@@ -147,10 +147,12 @@ def calculate_walls_area():
     elif float(walls_area) > 150:
         mats_cost = 220
 
-    total_walls_cost = total + mats_cost
+    total_walls = total + mats_cost
+    total_walls_cost = round(total_walls, 2)
     print(total_walls_cost)
+    return total_walls_cost
 
-
+x = round(5.76543, 2)
 def main():
     """
     Runs all functions
