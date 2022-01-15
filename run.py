@@ -39,8 +39,26 @@ def today():
     today = date.today()
     print("Date of estimate:")
     print(today)
+    print()
     return today
 
 today()
 
+def validate_float(data):
+    """
+    Validates if the value in the input is a float. 
+    Used where a meterage measurement is required. 
+    """
+
+    while True:
+        number_input = input('Enter measurement here (Eg 4.5):')
+
+        try:
+            val = float(number_input)
+            return val
+            break
+        except ValueError:
+            print("That's not an float!")
+
+validate_float(data)
 
