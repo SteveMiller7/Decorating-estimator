@@ -49,14 +49,14 @@ def validate_float(data):
     """
 
     while True:
-        number_input = input('Enter measurement in meters (Eg 4.5):')
+        number_input = input('Enter measurement in meters (eg 2.5):\n')
 
         try:
             val = float(number_input)
             return val
             break
         except ValueError:
-            print("Error! Please input a measurement in meters e.g. 4.5")
+            print("Error! Please input a measurement in meters e.g. 2.5")
 
 
 
@@ -67,7 +67,7 @@ def validate_int(data):
     """
 
     while True:
-        number_input = input('Enter number here (e.g. 3):')
+        number_input = input()
 
         try:
             val = int(number_input)
@@ -166,6 +166,20 @@ def calculate_ceilings(num1, num2):
     total_ceiling = ceiling_area * float(ceiling_rate)
     total_ceiling_cost = round(total_ceiling, 2)
     print(total_ceiling_cost)
+    print()
+
+def calculate_doors():
+
+    doors_input = input('Enter number of doors:\n')
+
+    costs = []
+    costs.append(sheet_data)
+    for cost in costs:
+        ceiling_rate = cost[1][2]
+    
+
+    doors_total_cost = int(doors_input) * float(ceiling_rate)
+    print(doors_total_cost)
 
 
 def main():
@@ -179,6 +193,7 @@ def main():
     height = room_height()
     calculate_walls_area(length, width, height)
     calculate_ceilings(length, width)
+    calculate_doors()
     
 
 main()
