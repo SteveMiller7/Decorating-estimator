@@ -132,7 +132,7 @@ def calculate_walls_area(num1, num2, num3):
     costs = []
     costs.append(sheet_data)
     for cost in costs:
-        walls_rate = cost[1][1]
+        walls_rate = cost[1][0]
 
     total = walls_area * float(walls_rate)
 
@@ -151,9 +151,21 @@ def calculate_walls_area(num1, num2, num3):
     print(total_walls_cost)
     return total_walls_cost
 
+def calculate_ceilings(num1, num2):
+    """
+    Calculates area of ceiling and determines the cost using the
+    predetermined rate per m2 for labour and materials from the spreadsheet.
+    """
+    ceiling_area = (num1 * num2) * 2
 
-
+    costs = []
+    costs.append(sheet_data)
+    for cost in costs:
+        ceiling_rate = cost[1][1]
     
+    total_ceiling = ceiling_area * float(ceiling_rate)
+    total_ceiling_cost = round(total_ceiling, 2)
+    print(total_ceiling_cost)
 
 
 def main():
@@ -166,7 +178,7 @@ def main():
     width = room_width()
     height = room_height()
     calculate_walls_area(length, width, height)
-
+    calculate_ceilings(length, width)
     
 
 main()
