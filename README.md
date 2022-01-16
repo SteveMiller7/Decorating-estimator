@@ -16,9 +16,17 @@ The user will enter various values such as customer name, room length, room widt
 It also asks if the the room is a bathroom or a kitchen and makes an allowance for the extra time these rooms take as well as for the more expesnive paint reuqiered. 
 
 Predetermined costs for each item have been worked out per m2, per m or per item and added to a linked google sheet. 
-If the user had to increase rates a small update to the google sheet would be done. 
+If the user has to increase rates a small update to the google sheet cells would need to be done. 
 The functions in the application verify the information is correct and present and calculates the costs. 
 A total cost is then calculated and all of the relevant information needed for an estimate are then inserted to the linked google estimate sheet. 
+
+Google sheets
+
+Below we see the costs sheet I have created to call the rates from and the estimate sheet which is returned the inoput values for name, length, width, height and total cost.
+
+![Google sheets costs sheet image](https://i.imgur.com/21R4fli.png)
+
+![Google sheets estimate sheet image](https://i.imgur.com/VXvkIlY.png)
 
 ## Features
 ***
@@ -70,3 +78,16 @@ These messages will appear when:
 ![Errors image 2](https://i.imgur.com/cGGQqKz.png)
 
 ![Errors image 2](https://i.imgur.com/GSIlUzE.png)
+
+### Future Features
+
+- Add wallpapering function
+- Specify paint finishes
+- Add Taping and Filling estimator per m2
+
+
+
+## Data Model
+
+***
+
