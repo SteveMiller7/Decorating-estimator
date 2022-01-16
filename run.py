@@ -250,9 +250,11 @@ def total_estimate(num1, num2, num3, num4, num5, num6):
     Adds all of the costs together and returns the final estimate.
     """
     print()
+    global total_price
     total_price = num1 + num2 + num3 + num4 + num5 + num6
     total_price = round(total_price, 2)
     print(f"Total Estimate is:\n£{total_price}")
+    return total_price
 
 def main():
     """
