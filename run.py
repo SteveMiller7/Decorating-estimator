@@ -14,11 +14,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('decorating_estimator')
 
 costs = SHEET.worksheet('costs')
-
 sheet_data = costs.get_all_values()
-
 costs = []
 costs.append(sheet_data)
+
+estimate = SHEET.worksheet('estimate')
 
 
 def welcome():
@@ -29,6 +29,7 @@ def welcome():
     print("Please input the required information when prompted.")
     print()
     
+    global cust_name
     cust_name = input("Enter customer name here:\n")
     return cust_name
 
@@ -44,6 +45,20 @@ def today():
     print(today)
     print()
     return today
+
+
+def update_estimate_name():
+    """
+    Takes name value accross to the estimate spreadhseet
+    """
+   
+    """
+    for name in estimate:
+        name_row = name[3]
+        print(name_row)
+    """
+    name_cell = estimate.cell(4, 1).value
+    estimate.update_cell(4, 1, cust_name)
 
 
 def validate_float(data):
@@ -138,6 +153,8 @@ def calculate_walls_area(num1, num2, num3):
     Calculates the labour cost of walls as per sizes input. 
     Calculates the amount of paint needed and cost.
     Totals labour and paint to a final figure.
+    Asks user if it is a kitchen or bathrooms and adjusts the overall walls price * 1.5 to allow for
+    extra time when painting complex rooms and an increase in the cost of appropriate paint. 
     """
 
     walls_total_length = ((num1 + num2) * 2) * 2
@@ -265,12 +282,12 @@ def total_estimate(num1, num2, num3, num4, num5, num6):
     return total_price
 
 
-
 def main():
     """
     Runs all functions
     """
     welcome()
+    update_estimate_name()
     today()
     length = room_length()
     width = room_width()
