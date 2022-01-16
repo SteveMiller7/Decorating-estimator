@@ -1,4 +1,3 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import date
