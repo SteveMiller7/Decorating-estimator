@@ -28,16 +28,17 @@ def welcome():
     print("Welcome to the Room Decorating Cost Estimator.")
     print("Please input the required information when prompted.")
     print()
-    cust_name = input('Enter customer name here:\n')
-    print()
+    
+    cust_name = input("Enter customer name here:\n")
     return cust_name
-    Print()
 
+    
 
 def today():
     """
     Automatically inputs the date of estimate creation"
     """
+    print()
     today = date.today()
     print("Date of estimate:")
     print(today)
@@ -83,11 +84,19 @@ def validate_int(data):
 def measurement(data):
     """
     Validates measurement inputs from room_length, room_width and room_height functions.
-    Ensures that inputs are integers.
+    Ensures that inputs are floats.
     """
 
     measurement = validate_float(data)
     return measurement
+
+def number(data):
+    """
+    Validates measurement inputs from room_length, room_width and room_height functions.
+    Ensures that inputs are integers.
+    """
+    number = validate_int(data)
+    return number
 
 
 def room_length():
@@ -95,7 +104,7 @@ def room_length():
     Takes user input for room length
     """
 
-    print('Room Length:\n')
+    print('Room Length:')
     global length
     length = measurement(measurement)
     print()
@@ -106,7 +115,7 @@ def room_width():
     Takes user input for room width
     """
 
-    print('Room Width:\n')
+    print('Room Width:')
     global width
     width = measurement(measurement)
     print()
@@ -117,7 +126,7 @@ def room_height():
     Takes user input for room height
     """
 
-    print('Room Height:\n')
+    print('Room Height:')
     global height
     height = measurement(measurement)
     print()
@@ -152,8 +161,23 @@ def calculate_walls_area(num1, num2, num3):
     total_walls = total + mats_cost
     global total_walls_cost
     total_walls_cost = round(total_walls, 2)
-    print(total_walls_cost)
     return total_walls_cost
+
+def calculate_skirtings():
+    """
+    Takes the room dimensions, adds them and doubles them to give us the total
+    metergae of skirting boards.
+    Uses the rate fromn the spreadsheet to return the total cost. 
+    """
+
+    skirtings_length = (length + width) * 2
+    print(f"There are {skirtings_length}m of skirting boards.")
+    for cost in costs:
+        skirtings_rate = cost[1][4]
+
+    global skirtings_total_cost
+    skirtings_total_cost = skirtings_length * float(skirtings_rate)
+    return skirtings_total_cost
 
 def calculate_ceilings(num1, num2):
     """
@@ -168,24 +192,24 @@ def calculate_ceilings(num1, num2):
     total_ceiling = ceiling_area * float(ceiling_rate)
     global total_ceiling_cost
     total_ceiling_cost = round(total_ceiling, 2)
-    print(total_ceiling_cost)
-    print()
+    return total_ceiling_cost
+
 
 def calculate_doors():
     """
     Calculates the cost for all doors using the rate from the spreadsheet.
     Takes a user input for the qty of doors in the room.
     """
-
-    doors_input = input('Enter number of doors:\n')
-
+    print()
+    print("Enter number of doors:")
+    doors = validate_int(number)
     for cost in costs:
-        ceiling_rate = cost[1][2]
+        doors_rate = cost[1][2]
     
     global doors_total_cost
-    doors_total_cost = int(doors_input) * float(ceiling_rate)
-    print(doors_total_cost)
-    print()
+    doors_total_cost = int(doors) * float(doors_rate)
+    return doors_total_cost
+    
 
 
 def calculate_windows():
@@ -193,48 +217,42 @@ def calculate_windows():
     Calculates the cost for all windows using the rate from the spreadsheet.
     Takes a user input for the qty of windows in the room.
     """
-
-    windows_input = input('Enter number of windows:\n')
+    print()
+    print("Enter number of windows:")
+    windows = validate_int(number)
     for cost in costs:
         windows_rate = cost[1][3]
     
     global windows_total_cost
-    windows_total_cost = int(windows_input) * float(windows_rate)
-    print(windows_total_cost)
-    print()
-
-def calculate_skirtings():
-    """
-    Takes the room dimensions, adds them and doubles them to give us the total
-    metergae of skirting boards.
-    Uses the rate fromn the spreadsheet to return the total cost. 
-    """
-    skirtings_length = (length + width) * 2
-    print(f"There are {skirtings_length}m of skirting")
-    for cost in costs:
-        skirtings_rate = cost[1][4]
-
-    global skirtings_total_cost
-    skirtings_total_cost = skirtings_length * float(skirtings_rate)
-    print(skirtings_total_cost)
+    windows_total_cost = int(windows) * float(windows_rate)
+    return windows_total_cost
+    
 
 def calculate_radiators():
     """"
     Takes user input for number of radiators in the room if they are to be apinted. 
     Uses rate from spreadsheet and totals the cost.
     """
-    radiators_input = input('Enter number of windows:\n')
+    print()
+    print("Enter number of radiators:")
+    radiators = validate_int(number)
     for cost in costs:
         radiators_rate = cost[1][5]
     
     global radiators_total_cost
-    radiators_total_cost = int(radiators_input) * float(radiators_rate)
-    print(radiators_total_cost)
-    print()
+
+    radiators_total_cost = int(radiators) * float(radiators_rate)
+    return radiators_total_cost
+    
 
 def total_estimate(num1, num2, num3, num4, num5, num6):
+    """
+    Adds all of the costs together and returns the final estimate.
+    """
+    print()
     total_price = num1 + num2 + num3 + num4 + num5 + num6
-    print(f"Total Estimate is £{total_price}")
+    total_price = round(total_price, 2)
+    print(f"Total Estimate is:\n£{total_price}")
 
 def main():
     """
@@ -246,10 +264,10 @@ def main():
     width = room_width()
     height = room_height()
     calculate_walls_area(length, width, height)
+    calculate_skirtings()
     calculate_ceilings(length, width)
     calculate_doors()
     calculate_windows()
-    calculate_skirtings()
     calculate_radiators()
     total_estimate(total_walls_cost, total_ceiling_cost, doors_total_cost, windows_total_cost, skirtings_total_cost, radiators_total_cost)
     
