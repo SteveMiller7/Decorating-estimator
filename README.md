@@ -32,7 +32,7 @@ It also displays the 'Enter Customer Name' input.
 
 The date function automatically displays the current date once the name has been entered.
 
-![Welcome information image](https://i.imgur.com/KnHeITt.png)
+![Date function image](https://i.imgur.com/KnHeITt.png)
 
 The user will now input the information needed to calculate the estimate total from this point.
 inputs include:
@@ -42,17 +42,25 @@ inputs include:
 - Is the room a kitchen or bathroom (these rooms take longer to paint and require a more expensive paint foer the walls)
 - A function the calculates the length of skirting boards in the room and displays it.
 
-![Welcome information image](https://i.imgur.com/sAr6vYP.png)
+![Inputs image 1](https://i.imgur.com/sAr6vYP.png)
 
 - Number of doors
 - Number of windows
 - Number of rabiators
 
-![Welcome information image](https://i.imgur.com/YFve33O.png)
+![Inputs image 2](https://i.imgur.com/YFve33O.png)
 
-Once all of the information has been entered the total estimate ius calculated and returned. 
+Once all of the information has been entered the total estimate is calculated and returned. 
 
-![Welcome information image](https://i.imgur.com/46NYVDL.png)
+![Total estimate image](https://i.imgur.com/46NYVDL.png)
 
 ### Error Checking 
 
+Errors messages will appear in inputs are not filled correctly.
+These messages will appear when:
+- The customer name is left blank
+- The length, widht and height inputs are not a float
+- The kitchen or bathroom question is not "yes" or "no"
+- The doors, windows and radiators is not an int
+
+![Welcome information image](https://i.imgur.com/46NYVDL.png)
