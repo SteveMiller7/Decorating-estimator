@@ -38,7 +38,6 @@ def welcome():
         print("Error! Please enter customers name")
         print()
         cust_name = input("Enter customer name here:\n")
-
     else:
         estimate.update_cell(4, 1, cust_name)
         return cust_name

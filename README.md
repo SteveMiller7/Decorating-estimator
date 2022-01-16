@@ -49,3 +49,10 @@ inputs include:
 - Number of rabiators
 
 ![Welcome information image](https://i.imgur.com/YFve33O.png)
+
+Once all of the information has been entered the total estimate ius calculated and returned. 
+
+![Welcome information image](https://i.imgur.com/46NYVDL.png)
+
+### Error Checking 
+
