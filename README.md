@@ -85,9 +85,19 @@ These messages will appear when:
 - Specify paint finishes
 - Add Taping and Filling estimator per m2
 
-
-
 ## Data Model
 
 ***
 
+I used a Hierarchical Data Model to strucutre the app. It requires me to call for information form an external spreadsheet. This information is then used within functions which contain loops, if statments, inputs and methods.
+Once all of the calculations have been made and a total estimate cost is returned it is then exported to an external estimate sheet along with other information. 
+
+## Testing
+
+***
+
+I have manually tested the app on:
+- Inserted wrong values to all of the inputs in the app to check the return of error massages and ensure it functions correctly.
+- Run the code through PEP8online.com to ensure the format is ok. All code was adjusted and retested until passed.
+- Tested the Heroku terminal once deployed and tested in the gitpod terminal throughout development. 
+- I have manually tested it on iPhone, macbook and iPad.

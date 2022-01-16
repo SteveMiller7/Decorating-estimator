@@ -196,7 +196,8 @@ def calculate_walls_area(num1, num2, num3):
             print()
             print('Error! Please enter "yes" or "no"')
             print()
-            room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
+            room_type_input = input("Is the room a Kitchen \
+or Bathroom? yes/no:\n")
 
 
 def calculate_skirtings():
