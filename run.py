@@ -150,6 +150,7 @@ def calculate_walls_area(num1, num2, num3):
         mats_cost = 220
 
     total_walls = total + mats_cost
+    global total_walls_cost
     total_walls_cost = round(total_walls, 2)
     print(total_walls_cost)
     return total_walls_cost
@@ -165,6 +166,7 @@ def calculate_ceilings(num1, num2):
         ceiling_rate = cost[1][1]
     
     total_ceiling = ceiling_area * float(ceiling_rate)
+    global total_ceiling_cost
     total_ceiling_cost = round(total_ceiling, 2)
     print(total_ceiling_cost)
     print()
@@ -180,7 +182,7 @@ def calculate_doors():
     for cost in costs:
         ceiling_rate = cost[1][2]
     
-
+    global doors_total_cost
     doors_total_cost = int(doors_input) * float(ceiling_rate)
     print(doors_total_cost)
     print()
@@ -196,7 +198,7 @@ def calculate_windows():
     for cost in costs:
         windows_rate = cost[1][3]
     
-
+    global windows_total_cost
     windows_total_cost = int(windows_input) * float(windows_rate)
     print(windows_total_cost)
     print()
@@ -211,9 +213,28 @@ def calculate_skirtings():
     print(f"There are {skirtings_length}m of skirting")
     for cost in costs:
         skirtings_rate = cost[1][4]
-    skirtings_cost = skirtings_length * float(skirtings_rate)
-    print(skirtings_cost)
 
+    global skirtings_total_cost
+    skirtings_total_cost = skirtings_length * float(skirtings_rate)
+    print(skirtings_total_cost)
+
+def calculate_radiators():
+    """"
+    Takes user input for number of radiators in the room if they are to be apinted. 
+    Uses rate from spreadsheet and totals the cost.
+    """
+    radiators_input = input('Enter number of windows:\n')
+    for cost in costs:
+        radiators_rate = cost[1][5]
+    
+    global radiators_total_cost
+    radiators_total_cost = int(radiators_input) * float(radiators_rate)
+    print(radiators_total_cost)
+    print()
+
+def total_estimate(num1, num2, num3, num4, num5, num6):
+    total_price = num1 + num2 + num3 + num4 + num5 + num6
+    print(f"Total Estimate is £{total_price}")
 
 def main():
     """
@@ -229,6 +250,8 @@ def main():
     calculate_doors()
     calculate_windows()
     calculate_skirtings()
+    calculate_radiators()
+    total_estimate(total_walls_cost, total_ceiling_cost, doors_total_cost, windows_total_cost, skirtings_total_cost, radiators_total_cost)
     
 
 main()
