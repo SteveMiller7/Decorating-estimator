@@ -23,17 +23,16 @@ estimate = SHEET.worksheet('estimate')
 
 def welcome():
     """
-    Welcome information and input for relevant customer name for the job being estimated.
+    Welcome information and input for relevant customer
+    name for the job being estimated.
     """
     print("Welcome to the Room Decorating Cost Estimator.")
     print("Please input the required information when prompted.")
     print()
-    
     global cust_name
     cust_name = input("Enter customer name here:\n")
-
     estimate.update_cell(4, 1, cust_name)
-    
+
 
 def today():
     """
@@ -47,13 +46,11 @@ def today():
     return today
 
 
-
 def validate_float(data):
     """
-    Validates if the value in the input is a float. 
-    Used where a meterage measurement is required. 
+    Validates if the value in the input is a float.
+    Used where a meterage measurement is required.
     """
-
     while True:
         number_input = input('Enter measurement in meters (eg 2.5):\n')
 
@@ -65,11 +62,11 @@ def validate_float(data):
             print("Error! Please input a measurement in meters e.g. 2.5")
 
 
-
 def validate_int(data):
     """
-    Validates if the value in the input is an int. 
-    Used where a whole number is required for doors, windows and radiator inputs. 
+    Validates if the value in the input is an int.
+    Used where a whole number is required for doors, windows
+    and radiator inputs.
     """
 
     while True:
@@ -85,16 +82,18 @@ def validate_int(data):
 
 def measurement(data):
     """
-    Validates measurement inputs from room_length, room_width and room_height functions.
+    Validates measurement inputs from room_length, room_width
+    and room_height functions.
     Ensures that inputs are floats.
     """
-
     measurement = validate_float(data)
     return measurement
 
+
 def number(data):
     """
-    Validates measurement inputs from room_length, room_width and room_height functions.
+    Validates measurement inputs from room_length, room_width
+    and room_height functions.
     Ensures that inputs are integers.
     """
     number = validate_int(data)
@@ -113,6 +112,7 @@ def room_length():
     estimate.update_cell(8, 1, f"{length}m long")
     return length
 
+
 def room_width():
     """
     Takes user input for room width
@@ -125,11 +125,11 @@ def room_width():
     estimate.update_cell(8, 3, f"{width}m wide")
     return width
 
+
 def room_height():
     """
     Takes user input for room height
     """
-
     print('Room Height:')
     global height
     height = measurement(measurement)
@@ -137,24 +137,25 @@ def room_height():
     estimate.update_cell(8, 5, f"{height}m high")
     return height
 
+
 def calculate_walls_area(num1, num2, num3):
     """
     Works out total wall area for 2 coats of paint.
-    Calculates the labour cost of walls as per sizes input. 
+    Calculates the labour cost of walls as per sizes input.
     Calculates the amount of paint needed and cost.
     Totals labour and paint to a final figure.
-    Asks user if it is a kitchen or bathrooms and adjusts the overall walls price * 1.5 to allow for
-    extra time when painting complex rooms and an increase in the cost of appropriate paint. 
+    Asks user if it is a kitchen or bathrooms and adjusts the
+    overall walls price * 1.5 to allow for
+    extra time when painting complex rooms and an increase in
+    the cost of appropriate paint.
     """
 
     walls_total_length = ((num1 + num2) * 2) * 2
     walls_area = walls_total_length * num3
-    
+
     for cost in costs:
         walls_rate = cost[1][0]
-
     total = walls_area * float(walls_rate)
-
 
     if float(walls_area) > 0:
         mats_cost = 55
@@ -168,7 +169,6 @@ def calculate_walls_area(num1, num2, num3):
     total_walls = total + mats_cost
     global total_walls_cost
     total_walls_cost = round(total_walls, 2)
-
     room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
 
     if room_type_input == "yes":
@@ -182,7 +182,7 @@ def calculate_skirtings():
     """
     Takes the room dimensions, adds them and doubles them to give us the total
     metergae of skirting boards.
-    Uses the rate fromn the spreadsheet to return the total cost. 
+    Uses the rate fromn the spreadsheet to return the total cost.
     """
     print()
     skirtings_length = (length + width) * 2
@@ -190,10 +190,10 @@ def calculate_skirtings():
     print(f"There are {skirtings_length}m of skirting boards.")
     for cost in costs:
         skirtings_rate = cost[1][4]
-
     global skirtings_total_cost
     skirtings_total_cost = skirtings_length * float(skirtings_rate)
     return skirtings_total_cost
+
 
 def calculate_ceilings(num1, num2):
     """
@@ -201,10 +201,8 @@ def calculate_ceilings(num1, num2):
     predetermined rate per m2 for labour and materials from the spreadsheet.
     """
     ceiling_area = (num1 * num2) * 2
-
     for cost in costs:
         ceiling_rate = cost[1][1]
-    
     total_ceiling = ceiling_area * float(ceiling_rate)
     global total_ceiling_cost
     total_ceiling_cost = round(total_ceiling, 2)
@@ -221,11 +219,9 @@ def calculate_doors():
     doors = validate_int(number)
     for cost in costs:
         doors_rate = cost[1][2]
-    
     global doors_total_cost
     doors_total_cost = int(doors) * float(doors_rate)
     return doors_total_cost
-    
 
 
 def calculate_windows():
@@ -238,15 +234,15 @@ def calculate_windows():
     windows = validate_int(number)
     for cost in costs:
         windows_rate = cost[1][3]
-    
     global windows_total_cost
     windows_total_cost = int(windows) * float(windows_rate)
     return windows_total_cost
-    
+
 
 def calculate_radiators():
     """"
-    Takes user input for number of radiators in the room if they are to be apinted. 
+    Takes user input for number of radiators in the room if they
+    are to be apinted.
     Uses rate from spreadsheet and totals the cost.
     """
     print()
@@ -254,12 +250,10 @@ def calculate_radiators():
     radiators = validate_int(number)
     for cost in costs:
         radiators_rate = cost[1][5]
-    
     global radiators_total_cost
-
     radiators_total_cost = int(radiators) * float(radiators_rate)
     return radiators_total_cost
-    
+
 
 def total_estimate(num1, num2, num3, num4, num5, num6):
     """
@@ -289,8 +283,8 @@ def main():
     calculate_doors()
     calculate_windows()
     calculate_radiators()
-    total_estimate(total_walls_cost, total_ceiling_cost, doors_total_cost, windows_total_cost, skirtings_total_cost, radiators_total_cost)
-    
+    total_estimate(total_walls_cost, total_ceiling_cost, doors_total_cost,
+                   windows_total_cost, skirtings_total_cost,
+                   radiators_total_cost)
 
 main()
-
