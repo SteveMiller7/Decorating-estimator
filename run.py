@@ -27,8 +27,8 @@ def welcome():
     name for the job being estimated.
     cheks the name input has a value and returns an error message if not.
     """
-    print("Welcome to the Room Decorating Cost Estimator.")
-    print("Please input the required information when prompted.")
+    print("Welcome to the\nRoom Decorating Cost Estimator.")
+    print("Please input the required information\nwhen prompted.")
     print()
     global cust_name
     cust_name = input("Enter customer name here:\n")
@@ -185,12 +185,6 @@ def calculate_walls_area(num1, num2, num3):
     total_walls_cost = round(total_walls, 2)
     room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
 
-    """while len(room_type_input) == 0:
-        print('Error! Please enter "yes" or "no"')
-        print()
-        room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
-    else:
-        return room_type_input"""
     while True:
         if room_type_input == "yes":
             total_walls_cost = total_walls_cost * 1.5
