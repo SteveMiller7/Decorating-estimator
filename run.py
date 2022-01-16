@@ -161,7 +161,15 @@ def calculate_walls_area(num1, num2, num3):
     total_walls = total + mats_cost
     global total_walls_cost
     total_walls_cost = round(total_walls, 2)
-    return total_walls_cost
+
+    room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
+
+    if room_type_input == "yes":
+        total_walls_cost = total_walls_cost * 1.5
+        return total_walls_cost
+    else:
+        return total_walls_cost
+
 
 def calculate_skirtings():
     """
@@ -169,7 +177,7 @@ def calculate_skirtings():
     metergae of skirting boards.
     Uses the rate fromn the spreadsheet to return the total cost. 
     """
-
+    print()
     skirtings_length = (length + width) * 2
     print(f"There are {skirtings_length}m of skirting boards.")
     for cost in costs:
@@ -255,6 +263,8 @@ def total_estimate(num1, num2, num3, num4, num5, num6):
     total_price = round(total_price, 2)
     print(f"Total Estimate is:\n£{total_price}")
     return total_price
+
+
 
 def main():
     """
