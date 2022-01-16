@@ -1,31 +1,24 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+* Room Decorating Cost Estimator
 
-Welcome SteveMiller7,
+***
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The Room Decorating Cost Estimator is a command_line application that decorators use to establish an estimate to supply customers for painting a room. 
 
-## Reminders
+Essential values are entered by the user to establish the end cost.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+**How it works
+***
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+The user will enter various values such as customer name, room length, room width, room height, number of doors, windows and radiators to be painted.
+It also asks if the the room is a bathroom or a kitchen and makes an allowance for the extra time these rooms take as well as for the more expesnive paint reuqiered. 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Predetermined costs for each item have been worked out per m2, per m or per item and added to a linked google sheet. 
+If the user had to increase rates a small update to the google sheet would be done. 
+The functions in the application verify the information is correct and present and calculates the costs. 
+A total cost is then calculated and all of the relevant information needed for an estimate are then inserted to the linked google estimate sheet. 
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+**Features
+***

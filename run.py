@@ -25,18 +25,19 @@ def welcome():
     """
     Welcome information and input for relevant customer
     name for the job being estimated.
+    cheks the name input has a value and returns an error message if not.
     """
     print("Welcome to the Room Decorating Cost Estimator.")
     print("Please input the required information when prompted.")
     print()
     global cust_name
     cust_name = input("Enter customer name here:\n")
-    
+
     while len(cust_name) == 0:
         print("Error! Please enter customers name")
         print()
         cust_name = input("Enter customer name here:\n")
-        
+
     else:
         estimate.update_cell(4, 1, cust_name)
         return cust_name
@@ -57,6 +58,7 @@ def today():
 def validate_float(data):
     """
     Validates if the value in the input is a float.
+    sends an error message if not.
     Used where a meterage measurement is required.
     """
     while True:
@@ -73,6 +75,7 @@ def validate_float(data):
 def validate_int(data):
     """
     Validates if the value in the input is an int.
+    sends an error message if not.
     Used where a whole number is required for doors, windows
     and radiator inputs.
     """
@@ -156,6 +159,8 @@ def calculate_walls_area(num1, num2, num3):
     overall walls price * 1.5 to allow for
     extra time when painting complex rooms and an increase in
     the cost of appropriate paint.
+    checks that the yes or no input has a value and sends
+    an error message if not.
     """
 
     walls_total_length = ((num1 + num2) * 2) * 2
@@ -178,7 +183,7 @@ def calculate_walls_area(num1, num2, num3):
     global total_walls_cost
     total_walls_cost = round(total_walls, 2)
     room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
-    
+
     while len(room_type_input) == 0:
         print('Error! Please enter "yes" or "no"')
         print()
