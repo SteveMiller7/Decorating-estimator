@@ -31,6 +31,14 @@ def welcome():
     print()
     global cust_name
     cust_name = input("Enter customer name here:\n")
+    
+    while len(cust_name) == 0:
+        print("Error! Please enter customers name")
+        print()
+        cust_name = input("Enter customer name here:\n")
+    else:
+        return cust_name
+
     estimate.update_cell(4, 1, cust_name)
 
 
@@ -170,6 +178,13 @@ def calculate_walls_area(num1, num2, num3):
     global total_walls_cost
     total_walls_cost = round(total_walls, 2)
     room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
+    
+    while len(room_type_input) == 0:
+        print('Error! Please enter "yes" or "no"')
+        print()
+        room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
+    else:
+        return room_type_input
 
     if room_type_input == "yes":
         total_walls_cost = total_walls_cost * 1.5
