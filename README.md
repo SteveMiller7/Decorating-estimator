@@ -22,3 +22,10 @@ A total cost is then calculated and all of the relevant information needed for a
 
 ## Features
 ***
+
+### Welcome information
+
+The welcome section has a welcome messsage and gives an instruction to input information when prompted.
+It also displays the 'Enter Customer Name' input.
+
+![Welcome information image](https://i.imgur.com/qa5rXWV.png)
