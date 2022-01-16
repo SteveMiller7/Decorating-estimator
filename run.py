@@ -17,6 +17,9 @@ costs = SHEET.worksheet('costs')
 
 sheet_data = costs.get_all_values()
 
+costs = []
+costs.append(sheet_data)
+
 
 def welcome():
     """
@@ -93,6 +96,7 @@ def room_length():
     """
 
     print('Room Length:\n')
+    global length
     length = measurement(measurement)
     print()
     return length
@@ -103,6 +107,7 @@ def room_width():
     """
 
     print('Room Width:\n')
+    global width
     width = measurement(measurement)
     print()
     return width
@@ -113,6 +118,7 @@ def room_height():
     """
 
     print('Room Height:\n')
+    global height
     height = measurement(measurement)
     print()
     return height
@@ -128,9 +134,6 @@ def calculate_walls_area(num1, num2, num3):
     walls_total_length = ((num1 + num2) * 2) * 2
     walls_area = walls_total_length * num3
     
-
-    costs = []
-    costs.append(sheet_data)
     for cost in costs:
         walls_rate = cost[1][0]
 
@@ -158,8 +161,6 @@ def calculate_ceilings(num1, num2):
     """
     ceiling_area = (num1 * num2) * 2
 
-    costs = []
-    costs.append(sheet_data)
     for cost in costs:
         ceiling_rate = cost[1][1]
     
@@ -169,17 +170,49 @@ def calculate_ceilings(num1, num2):
     print()
 
 def calculate_doors():
+    """
+    Calculates the cost for all doors using the rate from the spreadsheet.
+    Takes a user input for the qty of doors in the room.
+    """
 
     doors_input = input('Enter number of doors:\n')
 
-    costs = []
-    costs.append(sheet_data)
     for cost in costs:
         ceiling_rate = cost[1][2]
     
 
     doors_total_cost = int(doors_input) * float(ceiling_rate)
     print(doors_total_cost)
+    print()
+
+
+def calculate_windows():
+    """
+    Calculates the cost for all windows using the rate from the spreadsheet.
+    Takes a user input for the qty of windows in the room.
+    """
+
+    windows_input = input('Enter number of windows:\n')
+    for cost in costs:
+        windows_rate = cost[1][3]
+    
+
+    windows_total_cost = int(windows_input) * float(windows_rate)
+    print(windows_total_cost)
+    print()
+
+def calculate_skirtings():
+    """
+    Takes the room dimensions, adds them and doubles them to give us the total
+    metergae of skirting boards.
+    Uses the rate fromn the spreadsheet to return the total cost. 
+    """
+    skirtings_length = (length + width) * 2
+    print(f"There are {skirtings_length}m of skirting")
+    for cost in costs:
+        skirtings_rate = cost[1][4]
+    skirtings_cost = skirtings_length * float(skirtings_rate)
+    print(skirtings_cost)
 
 
 def main():
@@ -194,6 +227,8 @@ def main():
     calculate_walls_area(length, width, height)
     calculate_ceilings(length, width)
     calculate_doors()
+    calculate_windows()
+    calculate_skirtings()
     
 
 main()
