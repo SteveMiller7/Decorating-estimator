@@ -32,7 +32,6 @@ def welcome():
     global cust_name
     cust_name = input("Enter customer name here:\n")
 
-    name_cell = estimate.cell(4, 1).value
     estimate.update_cell(4, 1, cust_name)
     
 
@@ -111,6 +110,7 @@ def room_length():
     global length
     length = measurement(measurement)
     print()
+    estimate.update_cell(8, 1, f"{length}m long")
     return length
 
 def room_width():
@@ -122,6 +122,7 @@ def room_width():
     global width
     width = measurement(measurement)
     print()
+    estimate.update_cell(8, 3, f"{width}m wide")
     return width
 
 def room_height():
@@ -133,6 +134,7 @@ def room_height():
     global height
     height = measurement(measurement)
     print()
+    estimate.update_cell(8, 5, f"{height}m high")
     return height
 
 def calculate_walls_area(num1, num2, num3):
@@ -184,6 +186,7 @@ def calculate_skirtings():
     """
     print()
     skirtings_length = (length + width) * 2
+    skirtings_length = round(skirtings_length, 2)
     print(f"There are {skirtings_length}m of skirting boards.")
     for cost in costs:
         skirtings_rate = cost[1][4]
@@ -267,6 +270,7 @@ def total_estimate(num1, num2, num3, num4, num5, num6):
     total_price = num1 + num2 + num3 + num4 + num5 + num6
     total_price = round(total_price, 2)
     print(f"Total Estimate is:\n£{total_price}")
+    estimate.update_cell(10, 1, f"Total: £{total_price}")
     return total_price
 
 
