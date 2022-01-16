@@ -27,8 +27,9 @@ def welcome():
     name for the job being estimated.
     cheks the name input has a value and returns an error message if not.
     """
-    print("Welcome to the\nRoom Decorating Cost Estimator.")
-    print("Please input the required information\nwhen prompted.")
+    print("WELCOME\nto the\nRoom Decorating Cost Estimator.")
+    print()
+    print("Please input the required\ninformation when prompted.")
     print()
     global cust_name
     cust_name = input("Enter customer name here:\n")
