@@ -23,7 +23,7 @@ A total cost is then calculated and all of the relevant information needed for a
 ## Features
 ***
 
-### Welcome information
+Welcome information
 
 The welcome section has a welcome messsage and gives an instruction to input information when prompted.
 It also displays the 'Enter Customer Name' input.
@@ -41,8 +41,11 @@ inputs include:
 - Walls height
 - Is the room a kitchen or bathroom (these rooms take longer to paint and require a more expensive paint foer the walls)
 - A function the calculates the length of skirting boards in the room and displays it.
+
 ![Welcome information image](https://i.imgur.com/sAr6vYP.png)
+
 - Number of doors
 - Number of windows
 - Number of rabiators
+
 ![Welcome information image](https://i.imgur.com/YFve33O.png)
