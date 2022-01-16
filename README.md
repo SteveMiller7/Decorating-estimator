@@ -1,4 +1,4 @@
-* Room Decorating Cost Estimator
+# ROOM DECORATING COST ESTIMATOR
 
 ***
 
@@ -9,7 +9,7 @@ Essential values are entered by the user to establish the end cost.
 
 
 
-**How it works
+## How it works
 ***
 
 The user will enter various values such as customer name, room length, room width, room height, number of doors, windows and radiators to be painted.
@@ -20,5 +20,5 @@ If the user had to increase rates a small update to the google sheet would be do
 The functions in the application verify the information is correct and present and calculates the costs. 
 A total cost is then calculated and all of the relevant information needed for an estimate are then inserted to the linked google estimate sheet. 
 
-**Features
+## Features
 ***
