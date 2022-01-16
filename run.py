@@ -70,6 +70,7 @@ def validate_float(data):
             break
         except ValueError:
             print("Error! Please input a measurement in meters e.g. 2.5")
+            print()
 
 
 def validate_int(data):
@@ -190,16 +191,18 @@ def calculate_walls_area(num1, num2, num3):
         room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
     else:
         return room_type_input"""
-
-    if room_type_input == "yes":
-        total_walls_cost = total_walls_cost * 1.5
-        return total_walls_cost
-    elif room_type_input == "no"
-        total_walls_cost = total_walls_cost * 1.5
-        return total_walls_cost
-    else:
-        print('Error! Please enter "yes" or "no"')
-        return total_walls_cost
+    while True:
+        if room_type_input == "yes":
+            total_walls_cost = total_walls_cost * 1.5
+            return total_walls_cost
+        elif room_type_input == "no":
+            total_walls_cost = total_walls_cost * 1.0
+            return total_walls_cost
+        else:
+            print()
+            print('Error! Please enter "yes" or "no"')
+            print()
+            room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
 
 
 def calculate_skirtings():
