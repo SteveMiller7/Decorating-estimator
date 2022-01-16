@@ -63,4 +63,10 @@ These messages will appear when:
 - The kitchen or bathroom question is not "yes" or "no"
 - The doors, windows and radiators is not an int
 
-![Welcome information image](https://i.imgur.com/46NYVDL.png)
+![Errors image 1](https://i.imgur.com/PDUtkdi.png)
+
+![Errors image 2](https://i.imgur.com/5JIiq3F.png)
+
+![Errors image 2](https://i.imgur.com/cGGQqKz.png)
+
+![Errors image 2](https://i.imgur.com/GSIlUzE.png)
