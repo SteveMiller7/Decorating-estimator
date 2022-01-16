@@ -184,17 +184,21 @@ def calculate_walls_area(num1, num2, num3):
     total_walls_cost = round(total_walls, 2)
     room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
 
-    while len(room_type_input) == 0:
+    """while len(room_type_input) == 0:
         print('Error! Please enter "yes" or "no"')
         print()
         room_type_input = input("Is the room a Kitchen or Bathroom? yes/no:\n")
     else:
-        return room_type_input
+        return room_type_input"""
 
     if room_type_input == "yes":
         total_walls_cost = total_walls_cost * 1.5
         return total_walls_cost
+    elif room_type_input == "no"
+        total_walls_cost = total_walls_cost * 1.5
+        return total_walls_cost
     else:
+        print('Error! Please enter "yes" or "no"')
         return total_walls_cost
 
 
