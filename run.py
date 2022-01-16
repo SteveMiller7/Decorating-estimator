@@ -31,8 +31,9 @@ def welcome():
     
     global cust_name
     cust_name = input("Enter customer name here:\n")
-    return cust_name
 
+    name_cell = estimate.cell(4, 1).value
+    estimate.update_cell(4, 1, cust_name)
     
 
 def today():
@@ -46,19 +47,6 @@ def today():
     print()
     return today
 
-
-def update_estimate_name():
-    """
-    Takes name value accross to the estimate spreadhseet
-    """
-   
-    """
-    for name in estimate:
-        name_row = name[3]
-        print(name_row)
-    """
-    name_cell = estimate.cell(4, 1).value
-    estimate.update_cell(4, 1, cust_name)
 
 
 def validate_float(data):
@@ -287,7 +275,6 @@ def main():
     Runs all functions
     """
     welcome()
-    update_estimate_name()
     today()
     length = room_length()
     width = room_width()
