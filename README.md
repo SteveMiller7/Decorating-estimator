@@ -101,3 +101,25 @@ I have manually tested the app on:
 - Run the code through PEP8online.com to ensure the format is ok. All code was adjusted and retested until passed.
 - Tested the Heroku terminal once deployed and tested in the gitpod terminal throughout development. 
 - I have manually tested it on iPhone, macbook and iPad.
+
+### Bugs
+
+One bug in particular was my customer name input allowing an empty value to pass. I ended up using a while loop with length function to check that it was higher then 0 so I knew it wasnt empty before continuting to the next function.
+
+There are no remaining bugs
+
+### Validation Testing
+
+PEP8online.com used to check code and make the relevant changes. No errors found on final check. 
+
+## Deployment
+
+The development was deployed using Heroku.
+
+The steps taken to deploy were
+ - Create a new app in Heroku
+ - Add config vars
+ - Add buildpacks for Python and Nodejs
+ - Link my Github respitory to Heroku
+ - Deploy manually on Heroku
+
