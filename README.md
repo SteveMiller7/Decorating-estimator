@@ -123,3 +123,16 @@ The steps taken to deploy were
  - Link my Github respitory to Heroku
  - Deploy manually on Heroku
 
+## Credits
+
+ - Code Institute full stack web development course
+ - Love sandwiches by Code Institute
+ - Ultimate Battleshps by Code institute
+ - Google sheets
+ - Google Cloud
+ - Heroku
+ - Github and Gitpod
+ - geeksforgeeks.com
+ - stackoverflow.com
+ - PEP8online.com
+ - imgur.com
