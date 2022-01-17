@@ -2,6 +2,17 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import date
 
+"""
+This is an app which will calculate an estimate
+for painting a room including walls, ceiling, skirtings, doors and
+facings, windows and sills, radiators. It will determine if
+the room is a bathroom or kitchen and adjust accoringly.
+Information will be taken from a prefined spreadsheet
+of costs via google sheets.
+Return values will also be added to another spreadhseet
+which will be set up as an estimate.
+"""
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
